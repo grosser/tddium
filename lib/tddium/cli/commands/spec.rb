@@ -94,7 +94,12 @@ module Tddium
       #
       if options[:session_id] && options[:session_id] > 0
         session_id = options[:session_id]
-        @tddium_api.update_session(session_id, :commits => commits)
+        
+        begin
+          @tddium_api.update_session(session_id, :commits => commits)
+        rescue TddiumClient::Error::Base
+          say Text::Error::COMMIT_UPDATE_FAILED
+        end
       else
         session_id = @tddium_api.create_session(@tddium_api.current_suite_id, :commits => commits)["id"]
       end

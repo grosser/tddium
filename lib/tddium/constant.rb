@@ -438,6 +438,7 @@ EOF
       NOT_IN_ACCOUNT = "You aren't a member of organization %s."
       CANT_FIND_SUITE = "Can't find suite for %s/%s"
       INVALID_ACCOUNT_NAME = "Invalid organization name."
+      COMMIT_UPDATE_FAILED = "Error saving commit data"
     end
   end
 
