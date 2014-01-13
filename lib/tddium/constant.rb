@@ -19,6 +19,8 @@ module TddiumConstant
     GIT_READY_TRIES = 18
     GIT_READY_SLEEP = 10
     TEST_FINISH_TIMEOUT = 15 * 60 # 15 minutes
+
+    MAX_OUTPUT_SIZE = 5
   end
 
   module Config
@@ -230,7 +232,7 @@ EOF
       ABORTING = "Aborting."
       DESCRIBE_SESSION =<<EOF
 
-Session %d
+Session %d %s
 Showing %s tests
 
 EOF
@@ -438,6 +440,8 @@ EOF
       NOT_IN_ACCOUNT = "You aren't a member of organization %s."
       CANT_FIND_SUITE = "Can't find suite for %s/%s"
       INVALID_ACCOUNT_NAME = "Invalid organization name."
+      DESCRIBE_OUTPUT_MUST_BE_JSON = "Raw test output is only supported for JSON output format.  Re-run with --json"
+      DESCRIBE_OUTPUT_TOO_MANY_TESTS = "Raw test output only outputs less than #{Default::MAX_OUTPUT_SIZE} results. Re-run with a regex supplied to --output"
     end
   end
 
